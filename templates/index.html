@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Welcome to My API</h2>
+  <div style="display: inline;">
+    {% if request.user.is_authenticated %}
+    <p>You are logged in</p>
+    <p><a href="{%url 'token_obtain_pair'%}" target="_blank">Click here to Generate access and refresh token to access data</a></p>
+    <p>Below is API endpoints to acsesss Data (Make sure to add your Bearer Token in Request Header )</p>
+    <p>https://kandhve.pythonanywhere.com/api/data</p>
+    <p><a href="{%url 'api_data'%}"> Click to go Django Rest Framework Interface</a></p>
+    <p><a href="{%url 'logout' %}">Logout</a></p>
+  {%else%}
+  <a href="/signup">Sigup Here</a>
+  <a href="/login">Login Here</a>
+  {%endif%}
+  </div>
+  
+{% endblock %}

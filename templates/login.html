@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2> User Login <span><a href="{%url 'signup'%}">Sign up</a></span></h2>
+  <div class="container">
+    <form  method="post">
+      {% csrf_token %}
+      <ul>
+        <li><input type="text" name="username" placeholder="username"><br></li>
+          <li></li><input type="password" name="password" placeholder="password"><br></ul>
+          <input type="Submit">
+      </ul>
+      
+    </form>
+    <div>
+      {% for message in messages %}
+      <p>{{message}}</p>
+      {% endfor %}
+    </div>
+    
+  </div>
+{% endblock %}
